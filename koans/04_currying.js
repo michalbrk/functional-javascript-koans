@@ -3,6 +3,14 @@ describe("Currying", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // curry :: (* → a) → (* → a)
+      function curry(fn) {
+          return function r(...args) {
+              if(args.length >= fn.length) {
+                  return fn(...args);
+              }
+              return (...f) => r(...args, ...f);
+          }
+      }
 
     /***************************************************************/
 

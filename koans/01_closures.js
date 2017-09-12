@@ -4,6 +4,10 @@ describe("Closures", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // counter :: () → () → Number
+      function counter() {
+          let n = 0;
+          return () => ++n;
+      }
 
     /***************************************************************/
 
@@ -26,6 +30,18 @@ describe("Closures", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // unique :: () → a → Boolean
+    function unique() {
+        
+        const set = new Set();
+        return function predicate(item) {
+            if(set.has(item)) {
+                return false;
+            } 
+            set.add(item);
+            return true;
+        }
+    }
+      
 
     /***************************************************************/
 

@@ -3,6 +3,10 @@ describe("Partial application", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // sum :: Number → Number → Number
+      function sum(a, b) {
+          if(b) return a + b;
+          return b => a + b;
+      }
 
     /***************************************************************/
 
@@ -23,6 +27,10 @@ describe("Partial application", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // map :: (a → b) → [a] → [b]
+      function map(project, list) {
+          if(list) return list.map(project);
+          return list => list.map(project);
+      }
 
     /***************************************************************/
 

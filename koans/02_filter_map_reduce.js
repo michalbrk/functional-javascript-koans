@@ -4,6 +4,9 @@ describe("Filter", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // predicate :: Number → Boolean
+      function predicate(n) {
+          return n % 2 === 0;
+      }
 
     /***************************************************************/
 
@@ -20,6 +23,9 @@ describe("Filter", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // predicate :: String → Boolean
+        function predicate(str) {
+            return str.toLowerCase() !== str.toLowerCase().split('').reverse().join('')
+        }
 
     /***************************************************************/
 
@@ -33,6 +39,14 @@ describe("Filter", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // filter :: ((a → Boolean), [a]) → [a]
+      function filter(predicate, list) {
+          
+          const result = [];
+          for(let i = 0; i < list.length; i++) {
+              if(predicate(list[i])) result.push(list[i]);
+          }
+          return result;
+      }
 
     /***************************************************************/
 
@@ -50,6 +64,15 @@ describe("Map", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // fibonacci :: Number → Number
+      function fib(n) {
+          let prev = 1;
+          let curr = 0;
+          for(let i = 0; i < n; i++) {
+              curr += prev;
+              prev = curr - prev;
+          }
+          return curr;
+      }
 
     /***************************************************************/
 
@@ -63,6 +86,13 @@ describe("Map", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // map :: ((a → b), [a]) → [b]
+      function map(project, list) {
+          const result = [];
+          for(let i = 0; i < list.length; i++) {
+              result.push(project(list[i]));
+          }
+          return result;
+      }
 
     /***************************************************************/
 
@@ -78,6 +108,9 @@ describe("Map", () => {
     // HINT: You can do it in one line using Array.from (or spread operator), array constructor and built-in map function
 
     // range :: (Number, Number) → [Number]
+      function range(min, max) {
+          return [...Array(max - min + 1)].map((v, i) => min + 1);
+      }
 
     /***************************************************************/
 
@@ -97,6 +130,10 @@ describe("Reduce", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // fromPairs :: ({ [a]: b }) → [{a, b}]
+      function fromParis(pairs) {
+          return pairs.reduce((akk, [key, value]) => Object.assign({}, akk, { [key]: value }), {});
+      }
+      
 
     /***************************************************************/
 
@@ -109,6 +146,9 @@ describe("Reduce", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // map :: ((a → b), [a]) → [b]
+      function map(project, list) {
+          return list.reduce((akk, value) => [...akk, project(value)], []);
+      }
 
     /***************************************************************/
 
@@ -122,6 +162,9 @@ describe("Reduce", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // filter :: ((a → Boolean), [a]) → [a]
+      function filter(predicate, list) {
+          return list.reduce((akk, v) ? [...akk, v] : [...akk]);
+      }
 
     /***************************************************************/
 
